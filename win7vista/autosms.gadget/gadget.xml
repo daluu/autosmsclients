@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<gadget>
+<name>AutoSMS</name>
+<namespace>org.cuuldesign.autosms</namespace>
+<version>1.0.0.0</version>
+<author name="David Luu">
+<info url="watacrackaz.com/autosms" text="WataCrackaz AutoSMS" />
+</author>
+<copyright>&#169; 2010</copyright>
+<description>Send SMS without any registration.</description>
+<icons>
+<icon height="16" width="16" src="AutoSMS_icon_16.png" />
+</icons>
+<hosts>
+<host name="sidebar">
+<base type="HTML" apiVersion="1.0.0" src="asms.html" />
+<permissions>full</permissions>
+<platform minPlatformVersion="0.3" />
+</host>
+</hosts>
+</gadget>  

@@ -1,0 +1,56 @@
+<html>
+<head>
+<title>AutoSMS Chrome Extension</title>
+<script language="javascript" src="asmshead.js"></script>
+<script>window.resizeTo(600, 100);</script>
+<!--// See asmshead.js for code comments and references //-->
+</head>
+<body onLoad="buildCarrierList();">
+<div style="border: 1px solid #808080; padding: 0px; width:51em; margin:0 auto; background-color: gray;">
+<table>
+<tr>
+<td align = "center" width = 1>
+Carrier:
+</td>
+<td align = "center" width = 1>
+Number:
+</td>
+<td align = "center" width = 1>
+Message:
+</td>
+<td align = "center" width = 1 colspan=2>
+Code:
+</td>
+<td></td>
+</tr>
+<tr>
+<td>
+<SELECT NAME="Carrier" id="Carrier">
+<OPTION VALUE="">Select carrier, service down if list empty.</OPTION>
+</SELECT>
+</td>
+<td>
+<INPUT TYPE="Text" NAME="Number" id="Number" SIZE="7" MAXLENGTH="16">
+</td>
+<td>
+<INPUT TYPE="Text" NAME="Message" id="Message" SIZE="10" MAXLENGTH="120">
+</td>
+<td>
+<IMG SRC="http://www.watacrackaz.com/autosms/autosms.php?getcode=1" ID="Code-Img" onClick='getCode();' TITLE="Click for new code">
+</td>
+<td>
+<INPUT TYPE="Text" NAME="Code" id="Code" SIZE="3" MAXLENGTH="5">
+</td>
+<td>
+<INPUT TYPE="Button" VALUE="Send" NAME="Send" onClick='sendsms();'>
+</td>
+</tr>
+<tr>
+<td colspan = "6" align="center">
+<div id="status_message"></div>
+</td>
+</tr>
+</table>
+</div>
+</body>
+</html>

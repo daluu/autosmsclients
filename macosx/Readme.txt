@@ -1,0 +1,1 @@
+Mac OS X widget/gadget for AutoSMS untested and binary for installing not available. I don't have a Mac to build and test the widget. Feel free to build/compile it yourself and test. Would appreciate it if someone can build (a working version of) this widget so that I can host on the project website for others to download and use.

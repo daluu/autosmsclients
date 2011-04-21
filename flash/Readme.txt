@@ -1,0 +1,1 @@
+The service provider added a crossdomain.xml file to the service site. So someday I'll make a Flash client. Maybe that can be used as workaround for iGoogle issue as well.

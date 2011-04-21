@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<Module>
+  <ModulePrefs title="AutoSMS iGoogle gadget" title_url="http://www.watacrackaz.com/autosms/" 
+ height="200" description="Allows you to send SMS for free w/o any registration or typical limits. Built using the AutoSMS API example." 
+    author="David Luu" 
+    author_email="mangaroo@gmail.com"> 
+    </ModulePrefs>
+  <Content type="html">
+  <![CDATA[
+<html>
+<head>
+<title>AutoSMS iGoogle gadget</title>
+<script language="javascript">
+/* Pure AJAX/XMLHTTP only demo of AutoSMS API
+This is the accompanying javascript code file
+Code adapted from sample code from:
+http://www.watacrackaz.com/autosms/api.php
+http://www.watacrackaz.com/autosms/apiexample.zip
+w/ potential customizations using XMLHTTP library code from
+http://www.codeproject.com/KB/session/httpautomationlibs.aspx
+http://www.codeproject.com/KB/session/httpautomationlibs/httplib_js.zip
+*/
+function handleCarrierListResponse(obj){
+  //obj.text contains the text of the page that was requested
+  var str = obj.text;
+  var carrierList = str.split("||");
+  for(carrier in carrierList){
+    var carrierPair = carrierList[carrier].split('|');
+    document.getElementById("Carrier").options[document.getElementById("Carrier").length] = new Option(carrierPair[0] + " - " + carrierPair[1], carrierPair[1]);
+    /* Other method to populate select list via DOM
+    var nextOpt = document.createElement('option');
+    nextOpt.text = carrierPair[0] + " - " + carrierPair[1];
+    nextOpt.value = carrierPair[1];
+    var selList = document.getElementById('Carrier');
+    try {
+      selList.add(nextOpt, null); // standards compliant; maybe not IE
+    }catch(ex) {
+      selList.add(nextOpt); // IE only
+    }
+    */
+  }
+}
+
+function buildCarrierList(){
+  var params = {};  
+  params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.TEXT;
+  var carrierUrl = "http://www.watacrackaz.com/autosms/autosms.php?getcarriers=1";
+  gadgets.io.makeRequest(carrierUrl, handleCarrierListResponse, params);
+}
+
+function handleHttpResponse(obj) {
+  //obj.text contains the text of the page that was requested
+  var str = obj.text;
+  result = str.split("||");
+  var reply;
+  if (!result[0]){
+    reply = "There was a problem sending your message. Please try again in a few moments";
+    getCode();
+    return;
+  }
+  if (result[0] == "error"){
+    reply = result[1];
+    getCode();
+  }else {
+    reply = result[0];
+    ClearFields();
+  }
+  //document.getElementById("status_message").innerHTML = reply;
+  document.getElementById("status_message").value = reply;
+}
+
+function getCode(){
+  var currentTime = new Date();
+  var newtime = currentTime.getTime();
+  document.getElementById("Code-Img").setAttribute("src", "http://www.watacrackaz.com/autosms/autosms.php?getcode=1&" + newtime);
+}
+
+function ClearFields(){
+  document.getElementById("Carrier").value = "";
+  document.getElementById("Number").value = "";
+  document.getElementById("Message").value = "";
+  document.getElementById("Code").value = "";
+  document.getElementById("status_message").value = "SMS status here";
+  getCode();
+}
+
+function sendsms() {
+  carrier = document.getElementById("Carrier").value;
+  number = document.getElementById("Number").value;
+  message = document.getElementById("Message").value;
+  code = document.getElementById("Code").value;
+  
+  var params = {};
+  params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.TEXT;
+  var url = "http://www.watacrackaz.com/autosms/autosms.php?blob=";
+  var fullUrl = url + "0.4||" + code + "||" + escape(carrier) + "||" + number + "||" + escape(message);
+  gadgets.io.makeRequest(fullUrl, handleHttpResponse, params);
+}
+</script>
+</head>
+<body onLoad="buildCarrierList();">
+<div style="border: 1px solid #808080; padding: 0px; width:51em; margin:0 auto; background-color: gray;">
+<table width="200">
+<tr>
+<td width = 1>
+<SELECT NAME="Carrier" id="Carrier">
+<OPTION VALUE="">Select carrier</OPTION>
+</SELECT>
+</td>
+</tr>
+<tr>
+<td width = 1>
+Number: <INPUT TYPE="Text" NAME="Number" id="Number" SIZE="7" MAXLENGTH="16">
+</td>
+</tr>
+<tr>
+<td width = 1>
+Message: <INPUT TYPE="Text" NAME="Message" id="Message" SIZE="10" MAXLENGTH="120">
+</td>
+</tr>
+<tr>
+<td width = 1>
+Code: <IMG SRC="http://www.watacrackaz.com/autosms/autosms.php?getcode=1" ID="Code-Img" onClick='getCode();' TITLE="Click for new code"> <INPUT TYPE="Text" NAME="Code" id="Code" SIZE="3" MAXLENGTH="5">
+</td>
+</tr>
+<tr>
+<td>
+<INPUT TYPE="Button" VALUE="Send" NAME="Send" onClick='sendsms();'>
+</td>
+</tr>
+<tr>
+<td>
+<TEXTAREA rows="2" cols="20" id="status_message" disabled>SMS status here</TEXTAREA>
+</td>
+</tr>
+</table>
+</div>
+</body>
+</html>
+]]>
+  </Content> 
+</Module>​
