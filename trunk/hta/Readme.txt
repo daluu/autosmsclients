@@ -1,0 +1,1 @@
+The HTA client will only work on systems running IE 7 or higher. May work with IE 6 but I forget. This is due to requirement of newer version of XML HTTP request object used by the client.

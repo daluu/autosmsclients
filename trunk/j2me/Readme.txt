@@ -1,0 +1,1 @@
+Someday I'd like to put up a J2ME mobile client as well, but don't have time for it these days.
