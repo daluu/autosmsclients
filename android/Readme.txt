@@ -1,1 +1,5 @@
-Anybody up for this? I don't have an Android development environment nor the time to work on this yet. Nor do I have an Android device to do final deployment testing.
+Not sure if source is available, but you can get the Android app at site below. Not made by me. Made by AutoSMS service provider.
+
+http://www.androidzoom.com/android_applications/communication/anonytext-lite_iihz.html
+
+http://www.androidzoom.com/android_applications/communication/anonytext-full_ikvq.html
