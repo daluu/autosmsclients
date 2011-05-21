@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" ?> 
+﻿<?xml version="1.0" encoding="UTF-8" ?> 
 <Module>
-  <ModulePrefs title="AutoSMS iGoogle gadget" title_url="http://www.watacrackaz.com/autosms/" 
+  <ModulePrefs title="AutoSMS iGoogle gadget" title_url="http://code.google.com/p/autosmsclients/" 
  height="200" description="Allows you to send SMS for free w/o any registration or typical limits. Built using the AutoSMS API example." 
     author="David Luu" 
     author_email="mangaroo@gmail.com"> 
@@ -10,20 +10,26 @@
 <html>
 <head>
 <title>AutoSMS iGoogle gadget</title>
+<script src="http://www.pliantcode.com/lib/crossxhr.js"></script>
 <script language="javascript">
-/* Pure AJAX/XMLHTTP only demo of AutoSMS API
-This is the accompanying javascript code file
-Code adapted from sample code from:
+/* Code here adapted from sample code from:
 http://www.watacrackaz.com/autosms/api.php
 http://www.watacrackaz.com/autosms/apiexample.zip
-w/ potential customizations using XMLHTTP library code from
-http://www.codeproject.com/KB/session/httpautomationlibs.aspx
-http://www.codeproject.com/KB/session/httpautomationlibs/httplib_js.zip
+
+Originally used iGoogle's version of XMLHttpRequest
+but that didn't support session state/cookies, so this
+app didn't work. So commented out those references &
+replaced with Flash-based XMLHttpRequest solution from
+http://code.google.com/p/crossxhr/
 */
-function handleCarrierListResponse(obj){
+var xhr = new CrossXHR();
+
+//function handleCarrierListResponse(obj){
+function handleCarrierListResponse(){
   //obj.text contains the text of the page that was requested
-  var str = obj.text;
-  var carrierList = str.split("||");
+  //var str = obj.text;
+  //var carrierList = str.split("||");
+  var carrierList = xhr.responseText.split("||");
   for(carrier in carrierList){
     var carrierPair = carrierList[carrier].split('|');
     document.getElementById("Carrier").options[document.getElementById("Carrier").length] = new Option(carrierPair[0] + " - " + carrierPair[1], carrierPair[1]);
@@ -42,16 +48,22 @@ function handleCarrierListResponse(obj){
 }
 
 function buildCarrierList(){
-  var params = {};  
-  params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.TEXT;
+  //var params = {};  
+  //params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.TEXT;
   var carrierUrl = "http://www.watacrackaz.com/autosms/autosms.php?getcarriers=1";
-  gadgets.io.makeRequest(carrierUrl, handleCarrierListResponse, params);
+  //gadgets.io.makeRequest(carrierUrl, handleCarrierListResponse, params);
+  xhr.open("GET", carrierUrl, true);
+  xhr.onreadystatechange = handleCarrierListResponse;
+  xhr.send(null);
 }
 
-function handleHttpResponse(obj) {
+//function handleHttpResponse(obj) {
+function handleHttpResponse() {
   //obj.text contains the text of the page that was requested
-  var str = obj.text;
-  result = str.split("||");
+  //var str = obj.text;
+  //result = str.split("||");
+if (xhr.readyState == 4) {
+  result = xhr.responseText.split("||");
   var reply;
   if (!result[0]){
     reply = "There was a problem sending your message. Please try again in a few moments";
@@ -67,6 +79,7 @@ function handleHttpResponse(obj) {
   }
   //document.getElementById("status_message").innerHTML = reply;
   document.getElementById("status_message").value = reply;
+}//end if
 }
 
 function getCode(){
@@ -90,11 +103,14 @@ function sendsms() {
   message = document.getElementById("Message").value;
   code = document.getElementById("Code").value;
   
-  var params = {};
-  params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.TEXT;
+  //var params = {};
+  //params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.TEXT;
   var url = "http://www.watacrackaz.com/autosms/autosms.php?blob=";
   var fullUrl = url + "0.4||" + code + "||" + escape(carrier) + "||" + number + "||" + escape(message);
-  gadgets.io.makeRequest(fullUrl, handleHttpResponse, params);
+  //gadgets.io.makeRequest(fullUrl, handleHttpResponse, params);
+  xhr.open("GET", fullUrl, true);
+  xhr.onreadystatechange = handleHttpResponse;
+  xhr.send(null);
 }
 </script>
 </head>
@@ -110,12 +126,12 @@ function sendsms() {
 </tr>
 <tr>
 <td width = 1>
-Number: <INPUT TYPE="Text" NAME="Number" id="Number" SIZE="7" MAXLENGTH="16">
+Number: <INPUT TYPE="Text" NAME="Number" id="Number" SIZE="15" MAXLENGTH="16">
 </td>
 </tr>
 <tr>
 <td width = 1>
-Message: <INPUT TYPE="Text" NAME="Message" id="Message" SIZE="10" MAXLENGTH="120">
+Message: <INPUT TYPE="Text" NAME="Message" id="Message" SIZE="15" MAXLENGTH="120">
 </td>
 </tr>
 <tr>
@@ -139,4 +155,4 @@ Code: <IMG SRC="http://www.watacrackaz.com/autosms/autosms.php?getcode=1" ID="Co
 </html>
 ]]>
   </Content> 
-</Module>​
+</Module>
