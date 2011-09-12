@@ -1,4 +1,4 @@
-#summary Discussion Forum for the various AutoSMS clients
+#summary Discussion Forum for the various AutoSMS clients + FAQ
 
 = Introduction =
 
