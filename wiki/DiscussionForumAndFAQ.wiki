@@ -30,7 +30,7 @@ The clients I build are limited/restricted to the API functionality offered by t
 
 This is a limitation of the (API) service provider. It does not distinguish when a code is entered incorrectly or there's some other problem.
 
-For example, the API service requires session state / cookie support, so if you build a client that doesn't offer that, it will fail with this particular error message quirk. [Such is the case of using the Microsoft HTA version of the client on a computer with IE 6 or older, no IE7 or newer. Seems lately, such is also the case for Safari extension - [http://code.google.com/p/autosmsclients/issues/detail?id=2 issue 2].
+For example, the API service requires session state / cookie support, so if you build a client that doesn't offer that, it will fail with this particular error message quirk. (Such is the case of using the Microsoft HTA version of the client on a computer with IE 6 or older, no IE7 or newer. Seems lately, such is also the case for Safari extension - [http://code.google.com/p/autosmsclients/issues/detail?id=2 issue 2]).
 
 =Known Issues=
 
