@@ -4,6 +4,8 @@
 <dict>
 	<key>Author</key>
 	<string>David Luu on Behalf of AutoSMS</string>
+	<key>Builder Version</key>
+	<string>534.50</string>
 	<key>CFBundleDisplayName</key>
 	<string>AutoSMS</string>
 	<key>CFBundleIdentifier</key>
@@ -11,7 +13,7 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0</string>
+	<string>2.0</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>Chrome</key>
@@ -44,6 +46,9 @@
 			<key>Allowed Domains</key>
 			<array>
 				<string>www.watacrackaz.com</string>
+				<string>textr.us</string>
+				<string>code.google.com</string>
+				<string>autosmsclients.googlecode.com</string>
 			</array>
 			<key>Include Secure Pages</key>
 			<true/>
@@ -52,8 +57,8 @@
 		</dict>
 	</dict>
 	<key>Update Manifest URL</key>
-	<string>http://dlweb.s3.amazonaws.com/software/plugins/safari/autosms-safari.plist</string>
+	<string>http://autosmsclients.googlecode.com/files/autosms-safari.plist</string>
 	<key>Website</key>
-	<string>http://www.watacrackaz.com/autosms/</string>
+	<string>http://code.google.com/p/autosmsclients/</string>
 </dict>
 </plist>
