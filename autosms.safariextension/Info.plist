@@ -57,7 +57,7 @@
 		</dict>
 	</dict>
 	<key>Update Manifest URL</key>
-	<string>http://autosmsclients.googlecode.com/files/autosms-safari.plist</string>
+	<string>http://autosmsclients.googlecode.com/svn/trunk/autosms-safari.plist</string>
 	<key>Website</key>
 	<string>http://code.google.com/p/autosmsclients/</string>
 </dict>
