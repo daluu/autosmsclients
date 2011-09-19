@@ -6,7 +6,7 @@
     "default_icon": "AutoSMS_icon_16.png",
     "popup": "autosms.html"
   },
-  "update_url": "http://dlweb.s3.amazonaws.com/software/plugins/chrome/autosmsupdates.xml",
+  "update_url": "http://autosmsclients.googlecode.com/files/autosmschromeextupdate.xml",
   "permissions": [
     "http://www.watacrackaz.com/"
   ]
