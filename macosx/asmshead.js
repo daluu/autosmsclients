@@ -110,3 +110,9 @@ function getHTTPObject() {
 
 var http = getHTTPObject();
 //var http = xmlHttp();
+//var http = CrossXHR(); //use Flash XmlHttpRequest
+//for workaround to Mac OS X session state persistence
+//issue between normal web content requests &
+//XmlHttpRequests
+//Flash library from http://www.pliantcode.com/lib/crossxhr.js
+//seems Flash component not working within Mac OS X widget
