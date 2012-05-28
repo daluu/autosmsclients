@@ -1,1 +1,7 @@
-Mac OS X widget/gadget for AutoSMS untested and binary for installing not available. I don't have a Mac to build and test the widget. Feel free to build/compile it yourself and test. Would appreciate it if someone can build (a working version of) this widget so that I can host on the project website for others to download and use.
+Finally got a Mac to build and test this widget. Unfortunately, only partially
+works due to some missing session state cookie support between the web content
+and the XmlHttpRequest. And replacing with Flash component for XmlHttpRequest
+didn't help. So that's too bad. Issue is with sending message, always get
+code error (enter code correctly) due to session state issue.
+
+Anyways, have fun playing with it and see if you can fix the problem.
