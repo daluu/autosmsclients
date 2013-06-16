@@ -42,7 +42,7 @@ function buildCarrierList(){
 	//} catch (e) {alert(e.description); return true;}
 }
 
-function handleHttpResponse() { 
+function handleHttpResponse() {
 	if (http.readyState == 4) {
 		result = http.responseText.split("||");
 		var reply;
@@ -60,6 +60,9 @@ function handleHttpResponse() {
 			ClearFields();
 		}
 		document.getElementById("status_message").innerHTML = reply;
+	}else{
+		//document.getElementById("status_message").value = "HTTP request failed? Ready state = " + http.readyState;
+		document.getElementById("status_message").innerHTML = "Attempting to send SMS, please wait...";
 	}
 }
 
@@ -110,3 +113,13 @@ function getHTTPObject() {
 
 var http = getHTTPObject();
 //var http = xmlHttp();
+
+function jsSetup(e){
+	window.resizeTo(600, 100);
+	buildCarrierList();
+	document.getElementById("Code-Img").addEventListener("click", getCode, false);
+	document.getElementById("Send").addEventListener("click", sendsms, false);
+}
+
+//window.addEventListener("DOMContentLoaded", jsSetup, false);
+window.addEventListener("load", jsSetup, false);

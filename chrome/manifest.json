@@ -1,12 +1,12 @@
 {
   "name": "AutoSMS",
-  "version": "1.1",
+  "version": "1.2",
+  "manifest_version": 2,
   "description": "Send free SMS w/o registration",
   "browser_action": {
     "default_icon": "AutoSMS_icon_16.png",
-    "popup": "autosms.html"
+    "default_popup": "autosms.html"
   },
-  "update_url": "http://autosmsclients.googlecode.com/svn/trunk/autosmschromeextupdate.xml",
   "permissions": [
     "http://www.watacrackaz.com/"
   ]
