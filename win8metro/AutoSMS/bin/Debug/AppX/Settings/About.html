@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>About</title>
+
+    <!-- WinJS references -->
+    <link href="//Microsoft.WinJS.1.0.RC/css/ui-dark.css" rel="stylesheet" />
+    <script src="//Microsoft.WinJS.1.0.RC/js/base.js"></script>
+    <script src="//Microsoft.WinJS.1.0.RC/js/ui.js"></script>
+    
+    <link href="About.css" rel="stylesheet" />
+    <script src="About.js"></script>
+</head>
+<body>
+   <div id="about" data-win-control="WinJS.UI.SettingsFlyout" data-win-options="{width: 'narrow'}">
+    <div class="SettingsPane">
+        <div class="win-label">
+            <button onclick="WinJS.UI.SettingsFlyout.show()" class="win-backbutton">
+            </button>
+            <span class="SettingsTitle">About</span>
+        </div>
+        <article class="SettingsContent">
+            <p>This is a version of the AutoSMS client ported as Windows 8 Metro application. Use to send free SMS text messages around the world.</p>
+            <p>For support, and more information about AutoSMS, go to <a href="http://code.google.com/p/autosmsclients/">http://code.google.com/p/autosmsclients/</a>.</p>
+            <p>You may also contact the developer by email: David, <a href="mailto:mangaroo@gmail.com">mangaroo@gmail.com</a>.</p>
+        </article>
+    </div>
+    </div>
+</body>
+</html>

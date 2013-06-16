@@ -1,0 +1,13 @@
+C:\Users\cuuld_000\Documents\Visual Studio 2012\Projects\AutoSMS\AutoSMS\bin\Debug\resources.pri
+C:\Users\cuuld_000\Documents\Visual Studio 2012\Projects\AutoSMS\AutoSMS\bin\Debug\AppxManifest.xml
+C:\Users\cuuld_000\Documents\Visual Studio 2012\Projects\AutoSMS\AutoSMS\bin\Debug\AutoSMS.build.appxrecipe
+C:\Users\cuuld_000\Documents\Visual Studio 2012\Projects\AutoSMS\AutoSMS\bld\Debug\priconfig.xml.intermediate
+C:\Users\cuuld_000\Documents\Visual Studio 2012\Projects\AutoSMS\AutoSMS\bld\Debug\layout.resfiles.intermediate
+C:\Users\cuuld_000\Documents\Visual Studio 2012\Projects\AutoSMS\AutoSMS\bld\Debug\resources.resfiles.intermediate
+C:\Users\cuuld_000\Documents\Visual Studio 2012\Projects\AutoSMS\AutoSMS\bld\Debug\pri.resfiles.intermediate
+C:\Users\cuuld_000\Documents\Visual Studio 2012\Projects\AutoSMS\AutoSMS\bld\Debug\priconfig.xml
+C:\Users\cuuld_000\Documents\Visual Studio 2012\Projects\AutoSMS\AutoSMS\bld\Debug\layout.resfiles
+C:\Users\cuuld_000\Documents\Visual Studio 2012\Projects\AutoSMS\AutoSMS\bld\Debug\resources.resfiles
+C:\Users\cuuld_000\Documents\Visual Studio 2012\Projects\AutoSMS\AutoSMS\bld\Debug\pri.resfiles
+C:\Users\cuuld_000\Documents\Visual Studio 2012\Projects\AutoSMS\AutoSMS\bld\Debug\LanguageQualifiers.txt
+C:\Users\cuuld_000\Documents\Visual Studio 2012\Projects\AutoSMS\AutoSMS\bld\Debug\ProjectArchitectures.txt
