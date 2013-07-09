@@ -1,9 +1,9 @@
-/* Pure AJAX/XMLHTTP only demo of AutoSMS API via MS HTA application
+/* Pure AJAX/XMLHTTP only demo of AutoSMS API
 This is the accompanying javascript code file
 Code adapted from sample code from:
 http://www.watacrackaz.com/autosms/api.php
 http://www.watacrackaz.com/autosms/apiexample.zip
-w/ customizations using XMLHTTP library code from
+w/ potential customizations using XMLHTTP library code from
 http://www.codeproject.com/KB/session/httpautomationlibs.aspx
 http://www.codeproject.com/KB/session/httpautomationlibs/httplib_js.zip
 */
@@ -36,11 +36,13 @@ function buildCarrierList(){
 		http.open("GET", carrierUrl, true);
 		http.onreadystatechange = handleCarrierListResponse;
 		http.send(null);
-	} catch (e) {alert("Get carrier list failed somehow. Service may be down."); return true;}
+	} catch (e) {
+		alert("Get carrier list failed somehow. Service may be down."); return true;
+	}
 	//} catch (e) {alert(e.description); return true;}
 }
 
-function handleHttpResponse() { 
+function handleHttpResponse() {
 	if (http.readyState == 4) {
 		result = http.responseText.split("||");
 		var reply;
@@ -58,6 +60,9 @@ function handleHttpResponse() {
 			ClearFields();
 		}
 		document.getElementById("status_message").innerHTML = reply;
+	}else{
+		//document.getElementById("status_message").value = "HTTP request failed? Ready state = " + http.readyState;
+		document.getElementById("status_message").innerHTML = "Attempting to send SMS, please wait...";
 	}
 }
 
@@ -80,8 +85,6 @@ function sendsms() {
 	number = document.getElementById("Number").value;
 	message = document.getElementById("Message").value;
 	code = document.getElementById("Code").value;
-	alert(carrier);
-	alert(code);
 	
 	var url = "http://www.watacrackaz.com/autosms/autosms.php?blob=";
 	try {
@@ -92,6 +95,7 @@ function sendsms() {
 	} catch (e) {alert(e.description); return true;}
 }
 
+//xmlHttp() from optional xmlHttpLib.js
 function getHTTPObject() {
   var xmlhttpObj;
   if (!xmlhttpObj && typeof XMLHttpRequest != 'undefined') {
@@ -107,5 +111,15 @@ function getHTTPObject() {
   return xmlhttpObj;
 }
 
-//var http = getHTTPObject();
-var http = xmlHttp();
+var http = getHTTPObject();
+//var http = xmlHttp();
+
+function jsSetup(e){
+	window.resizeTo(600, 100);
+	buildCarrierList();
+	document.getElementById("Code-Img").addEventListener("click", getCode, false);
+	document.getElementById("Send").addEventListener("click", sendsms, false);
+}
+
+//window.addEventListener("DOMContentLoaded", jsSetup, false);
+window.addEventListener("load", jsSetup, false);
