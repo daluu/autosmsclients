@@ -27,6 +27,7 @@ function handleCarrierListResponse(){
 			}
 			*/
 		}
+		getCode(); //also get CAPTCHA code & session ID
 	}
 }
 
@@ -63,10 +64,35 @@ function handleHttpResponse() {
 	}
 }
 
+function handleGetCode(){
+	if (http.readyState == 4) {
+		data = JSON.parse(http.responseText);
+		document.getElementById("Code-Img").setAttribute("src", "data:image/png;base64,"+data.code);
+		document.getElementById("Session").value = data.session;
+	}
+}
+
+
 function getCode(){
-	var currentTime = new Date();
-	var newtime = currentTime.getTime();
-	document.getElementById("Code-Img").setAttribute("src", "http://www.watacrackaz.com/autosms/autosms.php?getcode=1&" + newtime);
+	//var currentTime = new Date();
+	//var newtime = currentTime.getTime();
+	//document.getElementById("Code-Img").setAttribute("src", "http://www.watacrackaz.com/autosms/autosms.php?getcode=1&" + newtime);
+	
+	//workaround to get CAPTCHA code with session ID
+	//since Mac OS X widget doesn't offer option to extract document.cookie
+	//from XmlHttpRequest nor elements on page that are fetched back with a session cookie
+	//using custom API URL to get the CAPTCHA image as base64 for use with data URI image
+	//along with session ID, both encapsulated within JSON response
+	//NOTE: custom API URL might change over time...
+	var codeUrl = "http://cuurlapps-daluu3.rhcloud.com/getCode.php";
+	try {
+		http.open("GET", codeUrl, true);
+		http.onreadystatechange = handleGetCode;
+		http.send(null);
+	} catch (e) {
+		alert("Get code failed somehow. Service may be down."); return true;
+	}
+	//} catch (e) {alert(e.description); return true;}
 }
 
 function ClearFields(){
@@ -82,11 +108,13 @@ function sendsms() {
 	number = document.getElementById("Number").value;
 	message = document.getElementById("Message").value;
 	code = document.getElementById("Code").value;
+	session = document.getElementById("Session").value;
 	
 	var url = "http://www.watacrackaz.com/autosms/autosms.php?blob=";
 	try {
 		http.open("GET", url + "0.4||" + code + "||" + escape(carrier) + "||" + number + "||" + escape(message), true);
 		http.onreadystatechange = handleHttpResponse;
+		http.setRequestHeader("Cookie","PHPSESSID="+session);
 		http.send(null);
 	//} catch (e) {alert("Send SMS failed for some reason"); return true;}
 	} catch (e) {alert(e.description); return true;}
