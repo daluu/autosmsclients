@@ -1,0 +1,11 @@
+#summary A web version of AutoSMS that is kind of mobile friendly, usable in any browser
+
+=Mobile Friendly Web Client=
+
+Not quite optimized for mobile like iPhone, but usable. Could use help in touching up the UI to be mobile friendly/scalable/adaptable.
+
+Use either of these URLs to access:
+
+http://autosmsclient.appspot.com/autosms
+
+http://cuurlapps-daluu3.rhcloud.com/autosms.php
