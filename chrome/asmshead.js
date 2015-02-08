@@ -3,9 +3,6 @@ This is the accompanying javascript code file
 Code adapted from sample code from:
 http://www.watacrackaz.com/autosms/api.php
 http://www.watacrackaz.com/autosms/apiexample.zip
-w/ potential customizations using XMLHTTP library code from
-http://www.codeproject.com/KB/session/httpautomationlibs.aspx
-http://www.codeproject.com/KB/session/httpautomationlibs/httplib_js.zip
 */
 function handleCarrierListResponse(){
 	if (http.readyState == 4) {
@@ -47,12 +44,12 @@ function handleHttpResponse() {
 		result = http.responseText.split("||");
 		var reply;
 		if (!result[0]){
-			reply = "There was a problem sending your message. Please try again in a few moments";
+			reply = "<span class=\"error\">There was a problem sending your message. Please try again in a few moments.</span>";
 			getCode();
 			return;
 		}
 		if (result[0] == "error"){
-			reply = result[1];
+			reply = "<span class=\"error\">" + result[1] + "</span>";
 			getCode();
 		}
 		else {
@@ -95,13 +92,11 @@ function sendsms() {
 	} catch (e) {alert(e.description); return true;}
 }
 
-//xmlHttp() from optional xmlHttpLib.js
 function getHTTPObject() {
   var xmlhttpObj;
   if (!xmlhttpObj && typeof XMLHttpRequest != 'undefined') {
     try {
       xmlhttpObj = new XMLHttpRequest();
-      //xmlhttpObj = new xmlHttp();
     } catch (e) {
 	    alert("no xmlhttp");
 	    //xmlhttpObj = null;
@@ -112,7 +107,6 @@ function getHTTPObject() {
 }
 
 var http = getHTTPObject();
-//var http = xmlHttp();
 
 function jsSetup(e){
 	window.resizeTo(600, 100);
