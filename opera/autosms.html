@@ -6,24 +6,33 @@
 <style>        
 	td
 	{
-	    font-weight: bold;
+	    font-size: 12px;
+	}
+	.header
+	{
+		font-weight: bold;
+	}
+	.error
+	{
+		color: red;
+		font-weight: bold;
 	}
 </style>
 </head>
 <body>
-<div style="border: 1px solid #D5DBDB; padding: 0px; width:40em; margin:0 auto; background-color: #D5DBDB;">
-<table>
+<div style="border: 1px solid #D5DBDB; padding: 0px; width:640px; margin:0 auto; background-color: #D5DBDB;">
+<table align="center">
 <tr>
-<td align = "center" width = 1>
+<td align="center" class="header">
 Carrier:
 </td>
-<td align = "center" width = 1>
+<td align="center" class="header">
 Number:
 </td>
-<td align = "center" width = 1>
+<td align="center" class="header">
 Message:
 </td>
-<td align = "center" width = 1 colspan=2>
+<td align="center" class="header" colspan=2>
 Code:
 </td>
 <td></td>
@@ -51,8 +60,8 @@ Code:
 </td>
 </tr>
 <tr>
-<td colspan = "6" align="left">
-Status: <div ID="status_message"></div>
+<td colspan="6" align="left">
+<span class="header">Status:</span> <div ID="status_message"></div>
 <!--//<INPUT TYPE="Text" DISABLED="disabled" ID="status_message" SIZE="90"></INPUT>//-->
 </td>
 </tr>
