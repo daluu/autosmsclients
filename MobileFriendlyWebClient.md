@@ -1,0 +1,13 @@
+# Mobile Friendly Web Client #
+
+Not quite optimized for mobile like iPhone, but usable in any browser w/o installation. Same as using AutoSMS on the main site, only w/o all the other crap on the site, a more simplified layout for mobile, etc.
+
+**NOTE:** I could use help in touching up the UI to be mobile friendly/scalable/adaptable.
+
+Use either of these URLs to access:
+
+http://autosmsclient.appspot.com/autosms
+
+http://cuurlapps-daluu3.rhcloud.com/autosms.php
+
+FYI, original main site that is not mobile friendly is: http://www.watacrackaz.com/autosms/
