@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>Author</key>
-	<string>David Luu on Behalf of AutoSMS</string>
+	<string>David Luu</string>
 	<key>Builder Version</key>
-	<string>534.50</string>
+	<string>9537.78.2</string>
 	<key>CFBundleDisplayName</key>
 	<string>AutoSMS</string>
 	<key>CFBundleIdentifier</key>
@@ -13,9 +13,9 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleShortVersionString</key>
-	<string>2.0</string>
+	<string>2.1</string>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>2</string>
 	<key>Chrome</key>
 	<dict>
 		<key>Bars</key>
@@ -29,11 +29,20 @@
 				<string>AutoSMS</string>
 			</dict>
 		</array>
+		<key>Database Quota</key>
+		<real>1048576</real>
+		<key>Global Page</key>
+		<string>background.html</string>
 	</dict>
 	<key>Content</key>
 	<dict>
 		<key>Scripts</key>
-		<dict/>
+		<dict>
+			<key>Start</key>
+			<array>
+				<string>background.js</string>
+			</array>
+		</dict>
 	</dict>
 	<key>Description</key>
 	<string>Send free SMS text messages w/o registration and minimal limits</string>
@@ -47,8 +56,9 @@
 			<array>
 				<string>www.watacrackaz.com</string>
 				<string>textr.us</string>
-				<string>code.google.com</string>
-				<string>autosmsclients.googlecode.com</string>
+				<string>github.com</string>
+				<string>raw.githubusercontent.com</string>
+				<string>add0n.com</string>
 			</array>
 			<key>Include Secure Pages</key>
 			<true/>
@@ -57,8 +67,8 @@
 		</dict>
 	</dict>
 	<key>Update Manifest URL</key>
-	<string>http://autosmsclients.googlecode.com/svn/trunk/autosms-safari.plist</string>
+	<string>https://raw.githubusercontent.com/daluu/autosmsclients/master/autosms-safari.plist</string>
 	<key>Website</key>
-	<string>http://code.google.com/p/autosmsclients/</string>
+	<string>https://github.com/daluu/autosmsclients</string>
 </dict>
 </plist>

@@ -4,32 +4,49 @@
 <title>AutoSMS Safari Extension</title>
 <script language="javascript" src="asmshead.js"></script>
 <!--// See asmshead.js for code comments and references //-->
+<style>        
+	td
+	{
+	    font-size: 12px;
+	}
+	.header
+	{
+		font-weight: bold;
+	}
+	.error
+	{
+		color: red;
+		font-weight: bold;
+	}
+</style>
 </head>
-<body onLoad="buildCarrierList();">
+<body>
 <table>
 <tr>
 <td>
-Carrier:&nbsp;
+AutoSMS: Carrier:&nbsp;
 <SELECT NAME="Carrier" id="Carrier">
 <OPTION VALUE="">Select carrier, service down if list empty.</OPTION>
 </SELECT>
 </td>
 <td>
-Number:&nbsp;<INPUT TYPE="Text" NAME="Number" id="Number" SIZE="7" MAXLENGTH="16">
+Number:&nbsp;<INPUT TYPE="Text" NAME="Number" id="Number" SIZE="16" MAXLENGTH="16">
 </td>
 <td>
-Message:&nbsp;<INPUT TYPE="Text" NAME="Message" id="Message" SIZE="10" MAXLENGTH="120">
+Message:&nbsp;<INPUT TYPE="Text" NAME="Message" id="Message" SIZE="30" MAXLENGTH="120">
 </td>
 <td>
 Code:&nbsp;
-<IMG SRC="http://www.watacrackaz.com/autosms/autosms.php?getcode=1" ID="Code-Img" onClick='getCode();' TITLE="Click for new code">
+<IMG SRC="http://www.watacrackaz.com/autosms/autosms.php?getcode=1" ID="Code-Img" TITLE="Click for new code">
 &nbsp;
-<INPUT TYPE="Text" NAME="Code" id="Code" SIZE="3" MAXLENGTH="5">
+<INPUT TYPE="Text" NAME="Code" id="Code" SIZE="5" MAXLENGTH="5">
 </td>
 <td>
-<INPUT TYPE="Button" VALUE="Send" NAME="Send" onClick='sendsms();'>
+<INPUT TYPE="Button" VALUE="Send" NAME="Send" ID="Send">
 </td>
-<td><marquee>
+<td>
+<span class="header">Status: </span>
+<marquee>
 <div id="status_message"></div>
 </marquee>
 </td>
