@@ -44,22 +44,28 @@ function handleHttpResponse() {
 		result = http.responseText.split("||");
 		var reply;
 		if (!result[0]){
-			reply = "<span class=\"error\">There was a problem sending your message. Please try again in a few moments.</span>";
+			document.getElementById("status_message").className = "error";
+			reply = "There was a problem sending your message. Please try again in a few moments.";			
 			getCode();
 			return;
 		}
 		if (result[0] == "error"){
-			reply = "<span class=\"error\">" + result[1] + "</span>";
+			document.getElementById("status_message").className = "error";
+			reply = result[1];
 			getCode();
 		}
 		else {
+			document.getElementById("status_message").className = "normal";
 			reply = result[0];
 			ClearFields();
 		}
+		var re = /(<([^>]+)>)/ig;
+		reply = reply.replace(re, "");
 		document.getElementById("status_message").innerHTML = reply;
 	}else{
 		//document.getElementById("status_message").value = "HTTP request failed? Ready state = " + http.readyState;
-		document.getElementById("status_message").innerHTML = "Attempting to send SMS, please wait...";
+		document.getElementById("status_message").className = "normal";
+		document.getElementById("status_message").innerText = "Attempting to send SMS, please wait...";
 	}
 }
 
