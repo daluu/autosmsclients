@@ -15,7 +15,7 @@
 	<key>CFBundleShortVersionString</key>
 	<string>2.1</string>
 	<key>CFBundleVersion</key>
-	<string>2</string>
+	<string>2.1</string>
 	<key>Chrome</key>
 	<dict>
 		<key>Bars</key>
@@ -67,7 +67,7 @@
 		</dict>
 	</dict>
 	<key>Update Manifest URL</key>
-	<string>https://raw.githubusercontent.com/daluu/autosmsclients/master/autosms-safari.plist</string>
+	<string>https://raw.githubusercontent.com/daluu/autosmsclients/master/autosms-safari-update.plist</string>
 	<key>Website</key>
 	<string>https://github.com/daluu/autosmsclients</string>
 </dict>
