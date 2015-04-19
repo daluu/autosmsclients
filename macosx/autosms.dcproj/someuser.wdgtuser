@@ -25,15 +25,15 @@
 		<key>Destination</key>
 		<string>localhost.default</string>
 		<key>EmailToNotifyAddress</key>
-		<string>dluu@shutterfly.com</string>
+		<string>tbd@email.com</string>
 		<key>SavePath</key>
-		<string>/Users/ettqa/Documents</string>
+		<string>/Users/someUsername/Documents</string>
 		<key>WidgetDeployName</key>
 		<string>AutoSMS</string>
 		<key>enableSimulation</key>
 		<true/>
 		<key>simulatedHost</key>
-		<string>mcwhitey.local</string>
+		<string>someHostname.local</string>
 	</dict>
 	<key>MainSplitViewGeometry</key>
 	<dict>
