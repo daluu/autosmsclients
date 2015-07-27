@@ -63,6 +63,7 @@ function handleHttpResponse() {
 		var re = /(<([^>]+)>)/ig;
 		reply = reply.replace(re, "");
 		document.getElementById("status_message").innerHTML = reply;
+		alert(reply);
 	}else{
 		//document.getElementById("status_message").value = "HTTP request failed? Ready state = " + http.readyState;
 		document.getElementById("status_message").className = "normal";
