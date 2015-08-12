@@ -9,7 +9,7 @@
 <copyright>&#169; 2010</copyright>
 <description>Send SMS without any registration.</description>
 <icons>
-<icon height="16" width="16" src="AutoSMS_icon_16.png" />
+<icon height="64" width="64" src="AutoSMS_icon_64.png" />
 </icons>
 <hosts>
 <host name="sidebar">
