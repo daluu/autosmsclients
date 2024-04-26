@@ -1,6 +1,8 @@
 AutoSMS clients
 =========
 
+***NOTE:*** this project is dead as the upstream dependency is down/gone, so the code here is just left for reference.
+
 This project site hosts various clients (browser extensions, plugins, etc.) for the free AutoSMS web-based text messaging service.
 Seeing as how some Google Chrome extensions have their source hosted on Google code, thought I should do similarly.
 The source files here can serve as useful examples of how to port an application/gadget/widget 
